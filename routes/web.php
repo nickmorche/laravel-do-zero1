@@ -1,5 +1,7 @@
 <?php
 
+use Illuminate\Support\Facades\Route;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -11,6 +13,21 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::namespace('Site')->group(function () {
+    /* Como criar rotas para colocar nos botões nas views
+    *   Adicione:
+    *   ->name('site.home');
+    */
+    Route::get('/', 'HomeController')->name('home');
+
+    Route::get('produtos', 'CategoryController@index')->name('products');
+
+    Route::get('produtos/{slug}','CategoryController@show')->name('products.category');
+
+    Route::get('blog','BlogController')->name('blog');
+
+    Route::view('sobre','site.about.index')->name('about');
+
+    Route::get('contato','ContactController@index')->name('contact');
+    Route::post('contato','ContactController@form')->name('contact'); 
+}); 
