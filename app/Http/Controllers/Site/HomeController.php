@@ -15,7 +15,7 @@ class HomeController extends Controller
      */
     public function __invoke(Request $request)
     {
-        return view('Site.home.index');
+        return view('site.home.index');
         //Retorna a view index.php do endereço /projeto/resources/views/site/home   
     }
 }
