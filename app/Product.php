@@ -19,7 +19,7 @@ class Product extends Model
         'deleted_at'
     ];
 
-    // 1o Cria aqui relacionamento Criando relacionamento entre a tabela categoria
+    // 1o Criando relacionamento entre a tabela categoria
     public function category()
     {
         return $this->belongsTo(Category::class);
